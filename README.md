@@ -1,1 +1,1 @@
-# analysis-of-Carretero-Navarro2018-replication-study
+This repository is part of a large replication project conducted by the Sports Science Replication Centre (https://ssreplicationcentre.com/). It includes the data and analyses for the replication study of "Effect of different loading conditions on running mechanics at different velocities" by Carreto-Navarro et al (2018).
