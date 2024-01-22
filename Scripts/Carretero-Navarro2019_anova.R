@@ -189,15 +189,6 @@ mas_posthoc
         
 confint(mas_posthoc)
 
-# post hoc for LOAD
-
-load_posthoc <- anova_results2 %>% 
-  emmeans::emmeans(~ LOAD)  %>%        # Calculate Estimated Marginal Means for SE and CI
-  pairs(adjust = "bonf") 
-load_posthoc
-
-confint(load_posthoc)
-
 # Replication test -----
 
 pes_rep = anova_results2$anova_table$pes[1]
