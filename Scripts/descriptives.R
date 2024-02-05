@@ -136,6 +136,6 @@ summary <- combined_data %>%
             sd_vert = sd(vert_stiffness, na.rm = TRUE))
 
 # exporting a file as a .csv
-summary %>%
-  select(everything()) %>% 
-  readr::write_csv("descriptives.csv", na="")
+#summary %>%
+#  select(everything()) %>% 
+#  readr::write_csv("descriptives.csv", na="")
