@@ -199,10 +199,10 @@ df_ori = 24 # reported in original study
 rho_ori = 2*sqrt(pes_ori)-1
 rho_rep = 2*sqrt(pes_rep)-1
 
-rep_test = TOSTER::compare_cor(r2 = rho_ori,
-                               df2 = df_ori,
-                               r1 = rho_rep,
-                               df1 = df_rep,
-                               alternative = "less")
+rep_test = TOSTER::compare_cor(r1 = rho_ori,
+                               df1 = df_ori,
+                               r2 = rho_rep,
+                               df2 = df_rep,
+                               alternative = "greater")
 rep_test
 
