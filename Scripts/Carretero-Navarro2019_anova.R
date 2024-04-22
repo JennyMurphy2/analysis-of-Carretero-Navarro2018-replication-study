@@ -206,3 +206,20 @@ rep_test = TOSTER::compare_cor(r1 = rho_ori,
                                alternative = "greater")
 rep_test
 
+# Original values
+
+orig_values <- data.frame(
+  fval = 52.577,
+  df1 = 2,
+  df2 = 24,
+  reported_es = 0.901,
+  pval = 0.00099 # conservative estimate
+)
+
+## Confirming the reported effect size ----------
+
+ori_es <- eta.F(dfm = orig_values$df1, dfe = orig_values$df2, 
+                Fvalue = orig_values$fval, a = 0.05)
+ori_es
+
+# cannot confirm reported effect size using reported F-value and degrees of freedom
