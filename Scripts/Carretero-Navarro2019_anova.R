@@ -173,11 +173,11 @@ summary(anova_results2)
 
 # CI for ES
 
-eta <- eta.F(dfm = anova_results2$anova_table$`num Df`[1], 
+pes_eta <- eta.F(dfm = anova_results2$anova_table$`num Df`[1], 
              dfe = anova_results2$anova_table$`den Df`[1], 
              Fvalue = anova_results2$anova_table$F[1], 
              a = 0.05)
-eta
+pes_eta
 
 ## Post hoc --------
 # post hoc for MAS
@@ -189,7 +189,7 @@ mas_posthoc
         
 confint(mas_posthoc)
 
-# Replication test -----
+# Replication Z-test using Reported Effect Size -----
 
 pes_rep = anova_results2$anova_table$pes[1]
 df_rep = anova_results2$anova_table$`den Df`[1]
@@ -212,8 +212,7 @@ orig_values <- data.frame(
   fval = 52.577,
   df1 = 2,
   df2 = 24,
-  reported_es = 0.901,
-  pval = 0.00099 # conservative estimate
+  reported_es = 0.901
 )
 
 ## Confirming the reported effect size ----------
@@ -223,3 +222,14 @@ ori_es <- eta.F(dfm = orig_values$df1, dfe = orig_values$df2,
 ori_es
 
 # cannot confirm reported effect size using reported F-value and degrees of freedom
+
+# Replication Z-test using Computed Effect Size -----
+
+rho_ori_calc = 2*sqrt(ori_es$eta)-1
+
+rep_test = TOSTER::compare_cor(r1 = rho_ori_calc,
+                               df1 = df_ori,
+                               r2 = rho_rep,
+                               df2 = df_rep,
+                               alternative = "greater")
+rep_test
